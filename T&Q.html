@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="tandq.js"></script>
+    </head>
+    <body onload="init()">
+        <div class="centerClass">
+            <h1>T&Q</h1>
+            <h2>Time and Question</h2>
+            <table id="scoreBoard"></table>
+            <p id="cTimer">--</p>
+        </div>
+        <div class="qandA">
+            <p id="question" onclick="questNext()">START</p>
+            <input id="answer" placeholder="↑ START click ↑" type="text">
+            <p><input id="btnClick" type="button" onclick="btnClick()" value="click"></p>
+        </div>
+    </body>
+</html>

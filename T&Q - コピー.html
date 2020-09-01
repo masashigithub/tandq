@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            h1 {
+                background-color: black;
+                color: #fff8dc;
+                font-size: 176px;
+                margin-bottom: 0px;
+                height: 230px;
+            }
+            h2 {
+                background-color: black;
+                color: #fff8dc;
+                font-size: 40px;
+                margin-top: 0px;
+            }
+            .centerClass {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 400px;
+            }
+
+            td {
+                width: 100px;
+                font-size: 40px;
+                color: rgb(43, 43, 44);
+            }
+            #cTimer{
+                height: 100px;
+                font-size: 80px; 
+            }
+            .qandA {
+                text-align: center;
+                color: rgb(43, 43, 44);
+                font-size: 40px;
+                margin: 0px, auto;
+            }
+            #answer {
+                color: rgb(43, 43, 44);
+                font-size: 40px;
+                width: 300px;
+            }
+            #btnClick {
+                color: rgb(43, 43, 44);
+                font-size: 40px;
+            }            
+
+        </style>
+        <script>
+            var timerId = NaN, count = 0, tcount = 2;
+            var q = [
+                {Q:"Q1.aaaaaaaaaaaaaaaaaaaaa", A:"aaa"}, 
+                {Q:"Q2.bbbbbbbbbbbbbbbbbbbbb", A:"bbb"}, "c", "d"
+            ]
+            function startTimer() {
+                clearInterval(timerId);
+                timerId = setInterval(tick, 1000);
+            }
+            function stopTimer() {
+                tcount = 2;
+                clearInterval(timerId);
+            }
+            function tick() {
+                document.getElementById("cTimer").textContent = tcount;
+                if(--tcount < 0){
+                    stopTimer();
+                    count++;
+                    var cells = "cell" + count;
+                    document.getElementById(cells).textContent = "×";
+                    quest();
+                }
+            }
+
+            function btnClick() {
+                var ans = document.getElementById("answer").value;
+                if (ans ==  q[count].A) {
+                    stopTimer();
+                    count++;
+                    var cells = "cell" + count;
+                    document.getElementById(cells).textContent = "★";
+                    quest();
+                }
+            }
+
+            function quest() {
+                document.getElementById("question").textContent = q[count].Q;
+                document.getElementById("answer").placeholder = "";
+                document.getElementById("answer").value = "";
+                startTimer();
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="centerClass">
+            <h1>T&Q</h1>
+            <h2>Time and Question</h2>
+        </div>
+        <div class="centerClass">
+            <table>
+                <tr>
+                    <td id="cell1">・</td>
+                    <td id="cell2">・</td>
+                    <td id="cell3">・</td>
+                    <td id="cell4">・</td>
+                </tr>
+                <tr>
+                    <td  id="cTimer" colspan="4">--</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="qandA">
+            <p id="question" onclick="quest()">START</p>
+            <input id="answer" placeholder="↑ START click ↑" type="text"><br>
+            <p>
+                <input id="btnClick" type="button" onclick="btnClick()" value="click">
+            </p>
+                
+        </div>
+    </body>
+</html>
