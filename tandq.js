@@ -4,12 +4,16 @@ var fin = "finish!!!";
 var finNext = "yes";
 
 //問題 
+// var q = [
+//     { Q: "Q1.aaaaaaaaaaaaaaaaaaaaa", A: "aaa" },
+//     { Q: "Q2.bbbbbbbbbbbbbbbbbbbbb", A: "bbb" },
+//     { Q: "Q3.ccccccccccccccccccccc", A: "ccc" },
+//     { Q: "Q4.ddddddddddddddddddddd", A: "ddd" },
+//     { Q: "Q5.eeeeeeeeeeeeeeeeeeeee", A: "eee" },
+//     { Q: "Q6.fffffffffffffffffffff", A: "fff" }
+// ]
 var q = [
     { Q: "Q1.aaaaaaaaaaaaaaaaaaaaa", A: "aaa" },
-    { Q: "Q2.bbbbbbbbbbbbbbbbbbbbb", A: "bbb" },
-    { Q: "Q3.ccccccccccccccccccccc", A: "ccc" },
-    { Q: "Q4.ddddddddddddddddddddd", A: "ddd" },
-    { Q: "Q5.eeeeeeeeeeeeeeeeeeeee", A: "eee" },
     { Q: "Q6.fffffffffffffffffffff", A: "fff" }
 ]
 
@@ -47,9 +51,9 @@ function tick() {
         var cells = "cell" + count;
         document.getElementById(cells).textContent = "×";
         questNext();
+    } else {
+        document.getElementById("cTimer").textContent = tcount;
     }
-    document.getElementById("cTimer").textContent = tcount;
-
 }
 
 //ボタンを押したときの処理 正解するとスコアボードに★が表示される
